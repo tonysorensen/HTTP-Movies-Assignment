@@ -33,7 +33,7 @@ function Movie({ addToSavedList }) {
       .delete(`http://localhost:5000/api/movies/${params.id}`)
       .then((res) => {
         console.log("Movie.js: handleDelete: axios delete: res: ", res);
-        push("/movies");
+        push("/");
       })
       .catch((err) =>
         console.error(`unable to delete item # ${params.id}: `, err)
