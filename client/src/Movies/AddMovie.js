@@ -34,8 +34,8 @@ const AddMovie = () => {
   };
 
   return (
-    <div>
-      <div>
+    <div className="movieForms">
+      <div className="addMovie">
         <h2>Add Movie</h2>
         <form onSubmit={addMovie} className="form">
           <input
@@ -70,8 +70,8 @@ const AddMovie = () => {
             value={movie.stars}
           />
 
-          <button className="md-button form-button" type="submit">
-            Add
+          <button className="btn" type="submit">
+            Add a Movie
           </button>
         </form>
       </div>
