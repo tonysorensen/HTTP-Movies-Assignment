@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const AddMovie = (props) => {
+const AddMovie = () => {
   const [movie, setMovie] = useState({
     title: "",
     director: "",
@@ -9,12 +9,6 @@ const AddMovie = (props) => {
     stars: [],
   });
 
-  const handleChange = (e) => {
-    setMovie({
-      ...movie,
-      [e.target.name]: e.target.value,
-    });
-  };
   const addMovie = () => {
     axios
       .post("http://localhost:5000/api/movies/", movie)
@@ -23,6 +17,22 @@ const AddMovie = (props) => {
       })
       .catch((err) => console.error("err from AddMovie", err));
   };
+
+  const handleChange = (e) => {
+    setMovie({
+      ...movie,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleStarsChange = (e) => {
+    const changedStars = e.target.value.split(",");
+    setMovie({
+      ...movie,
+      stars: changedStars,
+    });
+  };
+
   return (
     <div>
       <div>
@@ -55,7 +65,7 @@ const AddMovie = (props) => {
           <input
             type="text"
             name="stars"
-            onChange={handleChange}
+            onChange={handleStarsChange}
             placeholder="Stars"
             value={movie.stars}
           />
