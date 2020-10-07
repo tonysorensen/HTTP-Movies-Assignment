@@ -47,7 +47,7 @@ const UpdateMovie = () => {
       .put(`http://localhost:5000/api/movies/${id}`, movie)
       .then((res) => {
         console.log("res from put", res);
-        push(`/`);
+        push(`/movies/${id}`);
       })
       .catch((err) => {
         console.log("err from put", err);
@@ -97,19 +97,3 @@ const UpdateMovie = () => {
 };
 
 export default UpdateMovie;
-
-// let movies = [
-//     {
-//       id: 0,
-//       title: "The Godfather",
-//       director: "Francis Ford Coppola",
-//       metascore: 100,
-//       stars: ["Marlon Brando", "Al Pacino", "Robert Duvall"]
-//     },
-//     {
-//       id: 1,
-//       title: "Star Wars",
-//       director: "George Lucas",
-//       metascore: 92,
-//       stars: ["Mark Hamill", "Harrison Ford", "Carrie Fisher"]
-//     },
